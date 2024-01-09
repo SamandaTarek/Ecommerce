@@ -1,0 +1,31 @@
+﻿@model IEnumerable<e_commerce.Models.Product>
+
+@{
+
+    ViewData["Title"] = "Index";
+
+}
+<form method="get" asp-action="Index">
+    <p>
+        <input type="search" placeholder="Enter Product Name or Category Name" value="@ViewData["Getproductdetails"]" name="ProductSearch" style="width:500px;" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        <a asp-action="Index">Get All </a>
+    </p>
+</form>
+
+<h1> Product Details</h1>
+<table class="table table-striped">
+    <thead>
+    <th scope="col">ID</th>
+    <th scope="col">Products</th>
+    </thead>
+
+    @foreach (var product in Model)
+    {
+        <tr>
+            <th scope="row">@product.Id</th>
+            <th scope="row">@product.Name</th>
+        </tr>
+    }
+</table>
+
